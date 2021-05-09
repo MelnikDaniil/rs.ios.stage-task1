@@ -11,7 +11,15 @@
 @implementation OddNumbers
 
 - (NSInteger)oddNumbers:(NSArray <NSNumber *> *)array {
-    return -1;
+    __block int countOfOddNumbers = 0;
+    [array enumerateObjectsUsingBlock:^(id obj, NSUInteger index, BOOL *stop) {
+        NSInteger valueOfElement = [array[index] intValue];
+            
+        if (valueOfElement % 2 != 0) {
+                countOfOddNumbers += 1;
+            }
+         }];
+    return countOfOddNumbers;
 }
 
 @end
